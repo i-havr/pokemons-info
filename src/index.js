@@ -7,7 +7,7 @@ import { theme } from 'theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="my-projects">
+    <BrowserRouter basename="pokemons-info">
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
