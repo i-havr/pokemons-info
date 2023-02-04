@@ -1,8 +1,8 @@
 {
-  "name": "my-projects",
+  "name": "pokemons-info",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://i-havr.github.io/my-projects/",
+  "homepage": "https://i-havr.github.io/pokemons-info/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
