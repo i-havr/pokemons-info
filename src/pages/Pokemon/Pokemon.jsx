@@ -1,7 +1,7 @@
 import { useState, useEffect, Suspense } from 'react';
-import { Box } from '../Box/Box';
+import { Box } from '../../components/Box/Box';
 import { Loader } from 'components/Loader/Loader';
-import { getInvoices } from 'fakeApi';
+import { getInvoices } from 'services/fakeApi';
 import { Outlet } from 'react-router-dom';
 import { NavItemStyled } from './Pokemon.styled';
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getInvoiceById } from 'fakeApi';
+import { getInvoiceById } from 'services/fakeApi';
 
 export const PokemonDetails = () => {
   const { pokemonId } = useParams();
