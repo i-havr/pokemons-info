@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkpokemons_info=self.webpackChunkpokemons_info||[]).push([[127],{127:function(e,n,s){s.r(n),s.d(n,{default:function(){return r}});var u=s(682),i=s(184);function r(){return(0,i.jsx)(u.x,{as:"div",display:"flex",height:"100%",p:4,bg:"green",children:"Please input search query"})}}}]);
-//# sourceMappingURL=127.f3421942.chunk.js.map
