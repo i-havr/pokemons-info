@@ -1,40 +1,18 @@
-import {
-  BsStack,
-  // BsWalletFill,
-  // BsBriefcaseFill,
-  // BsChatLeftTextFill,
-  // BsPersonLinesFill,
-} from 'react-icons/bs';
-import { Box } from '../Box/Box';
-import { NavLinkStyled } from './AppBar.styled';
-
-const navItems = [
-  { href: '/', text: 'Home', icon: BsStack },
-  // { href: 'dashboard', text: 'Dashboard', icon: BsStack },
-  // { href: 'sales', text: 'Sales', icon: BsWalletFill },
-  // { href: 'reports', text: 'Reports', icon: BsBriefcaseFill },
-  // { href: 'feedback', text: 'Feedback', icon: BsChatLeftTextFill },
-  // { href: 'customers', text: 'Customers', icon: BsPersonLinesFill },
-];
+import { AppBarStyled, AppBarWrapperStyled } from './AppBar.styled';
+import Logo from 'components/Logo/Logo';
+import Searchbar from 'components/Searchbar/Searchbar';
+import { SiteNavigation } from 'components/SiteNavigation/SiteNavigation';
 
 export const AppBar = () => {
   return (
-    <Box
-      as="header"
-      p={4}
-      display="flex"
-      justifyContent="center"
-      height="auto"
-      borderBottom="1px solid black"
-    >
-      <Box as="nav" display="flex" justifyContent="space-between">
-        {navItems.map(({ href, text, icon: Icon }) => (
-          <NavLinkStyled to={href} key={href}>
-            <Icon sizes="16" />
-            {text}
-          </NavLinkStyled>
-        ))}
-      </Box>
-    </Box>
+    <AppBarStyled>
+      <AppBarWrapperStyled>
+        <a href="/pokemons-info">
+          <Logo />
+        </a>
+        <Searchbar />
+      </AppBarWrapperStyled>
+      <SiteNavigation />
+    </AppBarStyled>
   );
 };

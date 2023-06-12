@@ -1,59 +1,45 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-// import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import debounce from 'lodash.debounce';
+
+import { useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
+
 import {
   SearchbarStyled,
   SearchFormStyled,
   SearchFormInputStyled,
 } from './Searchbar.styled';
-import { IconButton } from './IconButton/IconButton';
+import { IconButton } from '../Button/IconButton/IconButton';
 import { ReactComponent as SearchIcon } from '../../icons/search.svg';
 
-export default function Searchbar({ onSubmit }) {
-  const [query, setQuery] = useState('');
+export default function Searchbar() {
+  const [, setSearchParams] = useSearchParams();
 
-  const handleInputChange = event => {
-    const { value } = event.currentTarget;
-    setQuery(value.toLowerCase());
-  };
+  const searchPokemon = useMemo(() => {
+    return debounce(search => {
+      search === '' ? setSearchParams({}) : setSearchParams({ search });
+    }, 500);
+  }, [setSearchParams]);
 
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    if (query.trim() === '') {
-      // toast.warn('Please enter a search term');
-      console.log('Please enter a search term');
-      return;
-    }
-    onSubmit(query);
-    resetForm();
-  };
-
-  const resetForm = () => {
-    setQuery('');
+  const handleSearch = event => {
+    const query = event.target.value.trim().toLowerCase();
+    searchPokemon(query);
   };
 
   return (
     <SearchbarStyled>
-      <SearchFormStyled onSubmit={handleSubmit}>
+      <SearchFormStyled>
         <IconButton aria-label="Search">
-          <SearchIcon width="24" height="24" />
+          <SearchIcon width="16" />
         </IconButton>
 
         <SearchFormInputStyled
           type="text"
           autoComplete="off"
           autoFocus
-          // value={this.state.query}
-          onChange={handleInputChange}
+          onChange={handleSearch}
           placeholder="Enter pokemon name"
         />
       </SearchFormStyled>
     </SearchbarStyled>
   );
 }
-
-Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

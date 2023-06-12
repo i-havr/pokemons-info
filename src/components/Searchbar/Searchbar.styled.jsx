@@ -1,47 +1,20 @@
 import styled from 'styled-components';
 
-export const SearchbarStyled = styled.header`
-  top: 0;
-  left: 0;
-  position: sticky;
-  z-index: 1100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 64px;
-  padding-right: 24px;
-  padding-left: 24px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  color: #fff;
-  /* background-color: #3f51b5; */
-  background-image: repeating-linear-gradient(
-    -45deg,
-    #606dbc,
-    #606dbc 10px,
-    #465298 10px,
-    #465298 20px
-  );
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+export const SearchbarStyled = styled.div`
+  width: 240px;
+  height: 64px;
+  padding: 0;
 `;
 
 export const SearchFormStyled = styled.form`
-  /* display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 600px;
-  background-color: #fff;
-  border-radius: 3px;
-  overflow: hidden; */
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  // flex-direction: column;
-  width: 350px;
+  width: 100%;
+  height: 100%;
 `;
 
 // export const SearchFormButtonStyled = styled.button`
@@ -93,16 +66,18 @@ export const SearchFormInputStyled = styled.input`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 50px;
+  height: 36px;
   padding-left: 16px;
   padding-right: 48px;
-  // margin-bottom: 20px;
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: 0.03em;
-  color: #212121;
+  outline: 3px solid ${p => p.theme.colors.yellow};
+  color: ${p => p.theme.colors.text};
   border: 1px solid rgba(255, 255, 255, 0.3);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  /* box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12); */
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: ${p => p.theme.colors.white};
 `;

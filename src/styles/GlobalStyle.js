@@ -9,7 +9,16 @@ export const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
+    background-image: repeating-linear-gradient(
+    -45deg,
+    #F2F2F2,
+    #F2F2F2 10px,
+    #E1E1E1 10px,
+    #E1E1E1 20px
+  );
+    /* background-color: #F2F2F2; */
+    /* background-color: #24282f; */
+    /* background-color: #E6DFD9; */
   }
 
 code {

@@ -1,18 +1,17 @@
-import { Box } from '../Box/Box';
+import {
+  FooterStyled,
+  FooterContentStyled,
+  FooterTextStyled,
+} from './Footer.styled';
 
 export const Footer = () => {
   return (
-    <Box
-      as="footer"
-      backgroundColor="grey"
-      p={4}
-      display="flex"
-      justifyContent="space-between"
-      width="100%"
-      height="auto"
-      borderTop="1px solid black"
-    >
-      Hello, I'm your footer :)
-    </Box>
+    <FooterStyled>
+      <FooterContentStyled>
+        <FooterTextStyled>
+          © 2023 | All Rights Reserved | Developed by Ihor Havrylov
+        </FooterTextStyled>
+      </FooterContentStyled>
+    </FooterStyled>
   );
 };

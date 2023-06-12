@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const SectionStyled = styled.div`
+export const SectionStyled = styled.section`
   display: block;
-  width: 100%;
-  margin-left: auto;
-  color: black;
+  margin: 0 auto 32px auto;
+
+  @media screen and (min-width: 1200px) {
+    max-width: 1600px;
+  }
+
   & > h2 {
     text-align: center;
   }

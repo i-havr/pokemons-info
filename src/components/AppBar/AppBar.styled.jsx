@@ -1,22 +1,27 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
-export const NavLinkStyled = styled(NavLink)`
+export const AppBarStyled = styled.header`
+  position: sticky;
+  top: 0;
+  left: 0;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  gap: ${p => p.theme.space[3]}px;
-  padding: ${p => p.theme.space[3]}px;
-  border-radius: ${p => p.theme.radii.normal};
-  text-decoration: none;
-  color: ${p => p.theme.colors.text};
+  width: 100%;
+  height: 80px;
+  margin-bottom: 32px;
+  padding: 0 128px;
+  border-bottom: 3px solid ${p => p.theme.colors.yellow};
+  background-image: linear-gradient(
+    ${p => p.theme.colors.darkblue},
+    ${p => p.theme.colors.bluegrey}
+  );
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+`;
 
-  &.active {
-    background-color: ${p => p.theme.colors.primary};
-    color: ${p => p.theme.colors.white};
-  }
-
-  :hover:not(.active),
-  :focus-visible:not(.active) {
-    color: ${p => p.theme.colors.primary};
-  }
+export const AppBarWrapperStyled = styled.div`
+  display: flex;
 `;

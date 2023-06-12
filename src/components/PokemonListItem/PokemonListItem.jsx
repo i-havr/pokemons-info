@@ -1,37 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { PokemonListItemStyled } from './PokemonListItem.styled';
-import { getPokemonByName } from 'services/PokemonApi';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useGetPokemonByNameQuery } from 'redux/pokemons/pokemons-slice';
+import {
+  PokemonListItemStyled,
+  PokemonCardStyled,
+  PokemonInfoStyled,
+  DescriptionWrapper,
+} from './PokemonListItem.styled';
+import { setLoading } from 'redux/loading/loading-slice';
 
 export const PokemonListItem = ({ name }) => {
-  const [pokemon, setPokemon] = useState(null);
+  const dispatch = useDispatch();
+  const { data: imageUrl, isFetching } = useGetPokemonByNameQuery(name);
 
   useEffect(() => {
-    const getPokemons = async () => {
-      try {
-        const pokemon = await getPokemonByName(name);
+    dispatch(setLoading(isFetching));
+  }, [dispatch, isFetching]);
 
-        setPokemon(pokemon);
-      } catch (error) {
-        console.log('Whoops, something went wrong ', error.message);
-        return;
-      }
-    };
-    getPokemons();
-  }, [name]);
-
-  if (pokemon) {
-    const { name, sprites } = pokemon;
-    const imageUrl = sprites.other['official-artwork'].front_default;
-
+  if (imageUrl) {
     return (
       <PokemonListItemStyled>
-        <div>
+        <PokemonCardStyled>
           <img src={imageUrl} alt={name} />
-        </div>
-        <div>
-          <h5>{name.toUpperCase()}</h5>
-        </div>
+          <PokemonInfoStyled>
+            <h5>{name.toUpperCase()}</h5>
+            <DescriptionWrapper>
+              <p>This is description</p>
+            </DescriptionWrapper>
+          </PokemonInfoStyled>
+        </PokemonCardStyled>
       </PokemonListItemStyled>
     );
   }
 };
+
+// <figure class="card card-hover-upTitleBg border-0 rounded-0">
+//   {/* <img class="card-img" src="https://i.ibb.co/30H3wzG/01.jpg" /> */}
+//   <figcaption class="card-body text-dark">
+//     <h5 class="card-title text-dark">TITLE</h5>
+//     <p class="card-text small">DESCRIPTION</p>
+//   </figcaption>
+// </figure>;
