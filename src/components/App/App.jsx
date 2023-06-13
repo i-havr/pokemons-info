@@ -4,11 +4,6 @@ import { Toaster } from 'react-hot-toast';
 
 import { GlobalStyle } from 'styles/GlobalStyle';
 import Layout from '../Layout/Layout';
-//== del
-// const Pokemon = lazy(() => import('pages/Pokemon/Pokemon'));
-// const PokemonDetails = lazy(() =>
-//   import('components/PokemonDetails/PokemonDetails')
-// );
 
 // const Pokemon = lazy(() => import('pages/Pokemon/Pokemon'));
 // const PokemonDetails = lazy(() =>
